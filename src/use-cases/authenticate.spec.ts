@@ -32,7 +32,7 @@ describe('Authenticate Use Case', () => {
     const usersRepository = new InMemoryUsersRepository();
     const authenticateUseCase = new AuthenticateUseCase(usersRepository);
 
-    expect(() =>
+    await expect(() =>
       authenticateUseCase.execute({
         email: 'nonexistent@example.com',
         password: '123123',
@@ -50,7 +50,7 @@ describe('Authenticate Use Case', () => {
       password_hash: await hash('123456', 6)
     });
 
-    expect(() =>
+    await expect(() =>
       authenticateUseCase.execute({
         email: 'johndoe@example.com',
         password: '123123',
