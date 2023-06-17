@@ -21,6 +21,12 @@ export class InMemoryGymsRepository implements GymsRepository {
     return Promise.resolve(gym);
   }
 
+  async searchMany(query: string, page: number): Promise<Gym[]> {
+    const gyms = this.gyms.filter(gym => gym.title.includes(query)).slice((page - 1) * 20, page * 20);
+
+    return Promise.resolve(gyms);
+  }
+
   async findById(id: string): Promise<Gym | null> {
     return this.gyms.find(user => user.id === id) || null;
   }
