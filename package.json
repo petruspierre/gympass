@@ -11,6 +11,7 @@
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
     "test:e2e": "vitest run -- dir src/http",
+    "test:e2e:watch": "vitest -- dir src/http",
     "test:watch": "vitest --dir src/use-cases",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
